@@ -3,56 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#050509" />
-  <title>AUREX — Discord Management Hub</title>
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#000000" />
+  <title>AUREX — Everything in One Place</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
   <div class="app-frame">
-    <header class="public-nav" id="public-nav">
-      <a class="brand" href="#home" aria-label="AUREX home"><span class="brand-mark">✣</span><span>AUREX</span></a>
-      <nav class="public-links" aria-label="Public navigation"><a class="active" href="#home">Home</a><a href="#features">Features</a><a href="#bots">Bots</a><a href="#dashboard">Dashboard</a></nav>
-      <button class="pill-button small primary" data-action="login">Login with Discord</button>
+    <header class="site-nav" id="public-nav" data-nav>
+      <a class="nav-logo" href="#home" aria-label="AUREX home"><span class="aurex-nav-label">AUREX</span></a>
+      <nav class="nav-links" aria-label="Primary navigation"><a class="nav-link active" href="#home">Home</a><a class="nav-link" href="#features">Features</a><a class="nav-link" href="#specs">Specs</a></nav>
+      <button class="clover-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu"><svg class="clover-svg" viewBox="0 0 34 34" aria-hidden="true"><use href="#clover-mark" /></svg></button>
+      <button class="header-login" data-action="login">Login with Discord</button>
       <button class="mobile-menu-button" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <div class="mobile-menu" id="mobile-menu" aria-hidden="true"><a href="#home">Home</a><a href="#features">Features</a><a href="#specs">Specs</a><a href="#dashboard">Dashboard</a></div>
     </header>
-
     <main id="public-site">
-      <section class="public-hero section" id="home">
-        <div class="blueprint blueprint-a"></div><div class="blueprint blueprint-b"></div>
-        <div class="hero-halo" aria-hidden="true"></div>
-        <div class="hero-content reveal">
-          <span class="eyebrow">AUREX / DISCORD OPERATIONS</span>
-          <h1>Every Bot.<br /><span>One Dashboard.</span></h1>
-          <p>Bring every community tool into one clear command center. Invite, configure, and monitor your Discord bots without switching between scattered panels.</p>
-          <div class="hero-actions"><button class="pill-button primary" data-action="login">Add to Discord <span>↗</span></button><button class="pill-button secondary" data-action="dashboard">Open Dashboard <span>↗</span></button></div>
-          <small>One workspace for every server you manage.</small>
-        </div>
+      <section class="hero" id="home" aria-labelledby="hero-heading">
+        <picture class="glow-picture" aria-hidden="true"><source media="(max-width: 767px)" srcset="/manus-storage/async-images/kFukbVWUliRsNxhToB3L3R/image-4.webp" /><img class="glow-image" src="/manus-storage/async-images/kFukbVWUliRsNxhToB3L3R/image-1.webp" alt="" /></picture>
+        <svg class="blueprint-overlay" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><g class="blueprint-solid"><path d="M5 0V100 M15 0V100 M24 0V100 M37 0V100 M40.5 0V100 M50 0V100 M63.5 0V100 M73 0V100 M83 0V100 M92.5 0V100" /><path d="M0 8H100 M0 12H100 M0 19H100 M0 35H100 M0 50H100 M0 54H100 M0 61H100 M0 76H100" /><circle cx="62.5" cy="34" r="18" /><circle cx="5.7" cy="77" r="18" /><circle cx="73" cy="77" r="19" /></g><g class="blueprint-dashed"><path d="M23.4 50V100 M51.7 8V61 M61 50V100 M25 41H61 M24.5 83H70.5" /></g><g class="blue-ticks"><path d="M5 52v4 M92.5 51v4 M73 62v4 M24.3 84v4 M73 93v4" /></g></svg>
+        <div class="hero-wordmark" aria-label="ZYNO"><svg viewBox="0 0 1260 100" role="img" aria-label="ZYNO" focusable="false"><g class="wordmark-letter"><path d="M0 8H190V28L50 72H190V92H0V72L140 28H0Z" /></g><g class="wordmark-letter"><path d="M340 8H390L430 42L470 8H520L455 66V92H405V66Z" /></g><g class="wordmark-letter"><path d="M680 92V8H790Q820 8 820 35V92H774V38H728V92Z" /><path d="M850 48H894V92H850Z" /></g><g class="wordmark-letter"><path d="M1010 8H1125Q1155 8 1155 38V62Q1155 92 1125 92H1010V72H1105Q1110 72 1110 62V38Q1110 28 1105 28H1010Z" /><path d="M1010 8V38H1045V62H1010V92H1060V72H1045V28H1060V8Z" /></g></svg></div>
+        <div class="hero-copy"><h1 id="hero-heading">Everything in One Place</h1><p>is the all-in-one platform designed to help you organize tasks, manage projects, and streamline your workflow. Whether you're planning personal goals or collaborating with your team, we give you the tools to achieve more.</p><div class="hero-actions"><a class="button button-light" href="#features">Download Demo</a><a class="button button-blue" href="#specs">Learn More</a></div><div class="trial">7-day trial</div></div>
       </section>
-
-      <section class="section feature-section" id="features"><div class="section-heading"><div><span class="eyebrow">BUILT FOR BUSY SERVERS</span><h2>Less switching.<br /><em>More control.</em></h2></div><p>Everything your moderators need to keep a community healthy, organized, and moving.</p></div><div class="feature-grid"><article class="glass-card feature-card"><span class="feature-number">01</span><h3>One command center</h3><p>Manage every AUREX bot and server from a single, calm workspace.</p></article><article class="glass-card feature-card"><span class="feature-number">02</span><h3>Permission-aware</h3><p>Only servers you can manage appear in your workspace.</p></article><article class="glass-card feature-card"><span class="feature-number">03</span><h3>Live operations</h3><p>See bot status, recent activity, and server health at a glance.</p></article><article class="glass-card feature-card"><span class="feature-number">04</span><h3>Designed to scale</h3><p>Start with one bot and add the full suite when your community grows.</p></article></div></section>
-
-      <section class="section bots-section" id="bots"><div class="section-heading"><div><span class="eyebrow">THE BOT HUB</span><h2>Tools that stay<br /><em>out of the way.</em></h2></div><button class="text-button" data-action="dashboard">Open bot hub ↗</button></div><div class="bot-grid" id="public-bots"></div></section>
-
-      <section class="section how-section"><span class="eyebrow">HOW IT WORKS</span><h2>From invite to <em>in control.</em></h2><div class="steps"><article><span>01</span><h3>Connect Discord</h3><p>Sign in securely and see only the servers you manage.</p></article><article><span>02</span><h3>Choose your bots</h3><p>Invite one bot or launch a coordinated setup for the whole suite.</p></article><article><span>03</span><h3>Run the room</h3><p>Configure each tool from one focused dashboard.</p></article></div></section>
-
-      <section class="section stats-section"><div class="stats-grid"><div><strong>6</strong><span>focused bots</span></div><div><strong>24/7</strong><span>community coverage</span></div><div><strong>1</strong><span>clear command center</span></div></div></section>
-
-      <section class="section faq-section"><span class="eyebrow">FAQ</span><h2>Clear answers.<br /><em>Fewer tabs.</em></h2><div class="faq-list"><details open><summary>Can I use more than one bot?</summary><p>Yes. AUREX is built for managing multiple bots across one or more Discord servers.</p></details><details><summary>Which servers can I manage?</summary><p>After Discord login, AUREX shows servers where you are the owner or have the required management permissions.</p></details><details><summary>Can I invite all bots together?</summary><p>The Bot Hub supports a guided multi-bot invite flow so each bot is tracked as it joins.</p></details></div></section>
-
-      <footer class="public-footer"><a class="brand" href="#home"><span class="brand-mark">✣</span><span>AUREX</span></a><p>Discord tools for communities that want less noise and more signal.</p><span>© 2026 AUREX</span></footer>
+      <section class="content-section features-section" id="features" aria-labelledby="features-heading"><div class="section-inner"><h2 id="features-heading">Features</h2><div class="feature-grid"><article class="feature-card"><span>01</span><h3>Organize tasks</h3></article><article class="feature-card"><span>02</span><h3>Manage projects</h3></article><article class="feature-card"><span>03</span><h3>Streamline your workflow</h3></article><article class="feature-card"><span>04</span><h3>Plan personal goals</h3></article><article class="feature-card"><span>05</span><h3>Collaborate with your team</h3></article></div></div></section>
+      <section class="content-section specs-section" id="specs" aria-labelledby="specs-heading"><div class="section-inner specs-inner"><h2 id="specs-heading">Specs</h2><dl class="spec-list"><div><dt>Trial</dt><dd>7 days</dd></div><div><dt>Demo</dt><dd>Download available</dd></div><div><dt>Use</dt><dd>Personal and team</dd></div></dl></div></section>
     </main>
-
-    <section class="dashboard-shell hidden" id="dashboard" aria-label="AUREX dashboard">
-      <aside class="sidebar"><a class="brand" href="#home"><span class="brand-mark">✣</span><span>AUREX</span></a><div class="server-switcher"><span class="server-icon">A</span><div><small>MANAGING</small><strong>Arcadia HQ</strong></div><span>⌄</span></div><nav class="side-nav" id="side-nav"></nav><div class="sidebar-bottom"><button class="side-link" data-action="logout">↩ <span>Log out</span></button></div></aside>
-      <div class="dashboard-main"><header class="dashboard-top"><button class="drawer-button" aria-label="Open sidebar">☰</button><div><span class="eyebrow">ARCADA HQ / CONTROL ROOM</span><h1 id="dashboard-title">Overview</h1></div><div class="user-chip"><span class="avatar">A</span><span class="user-name">Alex Morgan</span><span>⌄</span></div></header><div class="dashboard-content" id="dashboard-content"></div></div>
-    </section>
+    <section class="dashboard-shell hidden" id="dashboard" aria-label="AUREX dashboard"><aside class="sidebar"><a class="brand" href="#home"><span class="brand-mark">✣</span><span>AUREX</span></a><div class="server-switcher"><span class="server-icon">A</span><div><small>MANAGING</small><strong>Arcadia HQ</strong></div><span>⌄</span></div><nav class="side-nav" id="side-nav"></nav><div class="sidebar-bottom"><button class="side-link" data-action="logout">↩ <span>Log out</span></button></div></aside><div class="dashboard-main"><header class="dashboard-top"><button class="drawer-button" aria-label="Open sidebar">☰</button><div><span class="eyebrow">ARCADA HQ / CONTROL ROOM</span><h1 id="dashboard-title">Overview</h1></div><div class="user-chip"><span class="avatar">A</span><span class="user-name">Alex Morgan</span><span>⌄</span></div></header><div class="dashboard-content" id="dashboard-content"></div></div></section>
+    <div class="modal-backdrop hidden" id="modal-backdrop"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><button class="modal-close" aria-label="Close">×</button><div id="modal-content"></div></div></div><div class="toast" id="toast" role="status"></div>
+    <svg class="svg-defs" aria-hidden="true" focusable="false"><defs><g id="clover-mark" fill="currentColor"><circle cx="10" cy="10" r="8" /><circle cx="24" cy="10" r="8" /><circle cx="10" cy="24" r="8" /><circle cx="24" cy="24" r="8" /></g></defs></svg>
+    <script src="/script.js" defer></script>
   </div>
-
-  <div class="modal-backdrop hidden" id="modal-backdrop"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><button class="modal-close" aria-label="Close">×</button><div id="modal-content"></div></div></div><div class="toast" id="toast" role="status"></div>
-  <script src="/script.js" defer></script>
 </body>
 </html>

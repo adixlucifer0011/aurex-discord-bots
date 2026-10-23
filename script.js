@@ -44,7 +44,7 @@ const enterDashboard = () => {
 };
 const login = () => openModal('Connect Discord', '<p>Sign in with Discord to view the servers you manage. AUREX will only show servers where you have management permissions.</p><p class="muted">The production version will use Discord OAuth2 with a server-side session.</p>', 'Continue with Discord', enterDashboard);
 const publicBotMarkup = () => bots.filter((bot) => bot.name !== 'Custom').map((bot) => `<article class="glass-card bot-card"><div class="bot-card-top"><span class="bot-avatar">${bot.icon}</span><span class="status">Ready</span></div><h3>${bot.name}</h3><p>${bot.description}</p><button class="text-button" data-action="login">Invite ${bot.name} ↗</button></article>`).join('');
-document.querySelector('#public-bots').innerHTML = publicBotMarkup();
+document.querySelector('#public-bots')?.insertAdjacentHTML('beforeend', publicBotMarkup());
 const renderSideNav = () => {
   document.querySelector('#side-nav').innerHTML = tabs.map((tab) => `<button class="side-link ${activeTab === tab ? 'active' : ''}" data-tab="${escapeHtml(tab)}">${tab}</button>`).join('');
   document.querySelectorAll('[data-tab]').forEach((button) => button.addEventListener('click', () => { activeTab = button.dataset.tab; renderDashboard(); }));
@@ -77,7 +77,7 @@ const bindActions = () => {
 modalBackdrop?.addEventListener('click', (event) => { if (event.target === modalBackdrop) closeModal(); });
 document.querySelector('.modal-close')?.addEventListener('click', closeModal);
 document.querySelectorAll('a[href="#dashboard"]').forEach((element) => element.addEventListener('click', (event) => { event.preventDefault(); authenticated ? enterDashboard() : login(); }));
-document.querySelector('.mobile-menu-button')?.addEventListener('click', () => { const open = nav.classList.toggle('nav-open'); document.querySelector('.public-links').style.display = open ? 'flex' : ''; });
+document.querySelector('.mobile-menu-button')?.addEventListener('click', () => { const open = nav.classList.toggle('nav-open'); const mobileLinks = document.querySelector('.public-links') || document.querySelector('.nav-links'); if (mobileLinks) mobileLinks.style.display = open ? 'flex' : ''; });
 document.querySelector('.drawer-button')?.addEventListener('click', () => dashboard.classList.toggle('drawer-open'));
 document.querySelectorAll('[data-action="login"]').forEach((element) => element.addEventListener('click', login));
 document.querySelectorAll('[data-action="dashboard"]').forEach((element) => element.addEventListener('click', () => authenticated ? enterDashboard() : login()));
