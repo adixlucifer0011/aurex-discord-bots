@@ -58,5 +58,5 @@ const server = createServer(async (request, response) => {
 });
 
 server.listen(port, '0.0.0.0', () => {
-  console.log(`AUREX preview listening on http://0.0.0.0:${port}`);
+  console.log(`ZYNO preview listening on http://0.0.0.0:${port}`);
 });

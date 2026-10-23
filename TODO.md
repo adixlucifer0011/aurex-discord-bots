@@ -1,22 +1,24 @@
-# AUREX Website TODO
+# ZYNO landing page TODO
 
-## Responsive brand shell and navigation — complete
-- [x] Provide responsive header navigation with the temporary AUREX wordmark and an asset-ready logo slot for easy replacement later.
-- [x] Keep the experience responsive and mobile-friendly across navigation, hero, bot showcases, and calls to action.
+## Hero and visual system
+- [x] Build a single-page dark futuristic landing page with a pure black page, one giant glowing blue-and-white ring at the top, a centered wide SVG ZYNO wordmark, clean white hero text, faint blueprint lines and circles, and only black, white, #1010FF, and #8A8AFF.
+- [x] Generate 3 desktop 4:3 glow backgrounds and 1 portrait 9:16 glow background from the supplied exact prompts; use the selected desktop image at the top of the hero and the portrait image under 768px.
+- [x] Draw the large and small ZYNO wordmarks as inline SVG; draw the clover icon and favicon as SVG; do not use downloaded assets.
+- [x] Add the full blueprint SVG overlay with the specified solid lines, dashed lines, circles, and blue ticks.
 
-## Hero conversion section — complete
-- [x] Create a high-impact hero section with bold positioning, electric-blue visual effects, and primary calls to action to manage or add bots.
-- [x] Use smooth text reveals, animated gradients, glow effects, hover motion, and polished page transitions.
+## Exact hero content and layout
+- [x] Use Inter weights 400 and 500 from Google Fonts.
+- [x] Use the exact navbar text: Home, Features, Specs.
+- [x] Use the exact hero heading: Everything in One Place.
+- [x] Use the exact paragraph beginning with “is”: is the all-in-one platform designed to help you organize tasks, manage projects, and streamline your workflow. Whether you're planning personal goals or collaborating with your team, we give you the tools to achieve more.
+- [x] Use the exact buttons Download Demo and Learn More, plus the exact line 7-day trial.
+- [x] Keep the hero at max(100vh, 71vw), use the specified navbar dimensions, wordmark position, text block sizing, buttons, and responsive layout.
 
-## Six-bot showcase — complete
-- [x] Present six distinct bots: Level, Ping, Ticket, Greet, Music, and Guard.
-- [x] Give each bot a distinct summary and a functional selection action that routes to the AUREX launch panel.
+## Features and specs
+- [x] Add Features with exactly five glass cards: Organize tasks, Manage projects, Streamline your workflow, Plan personal goals, Collaborate with your team; use blue numbers 01 to 05.
+- [x] Add Specs with exactly: Trial = 7 days, Demo = Download available, Use = Personal and team.
+- [x] Use the same black background, faint lines, and blue glow through the extra sections.
 
-## Feature and value messaging — complete
-- [x] Explain the benefits of managing Discord communities with the AUREX bot suite.
-- [x] Use the supplied visual reference as the direction for the premium futuristic black, white, and electric-blue interface.
-
-## CTA and interaction polish — complete
-- [x] Include clear calls to action throughout the site for adding bots and accessing bot management.
-- [x] Include responsive interaction states and animated transitions that preserve usability on touch and desktop.
-- [x] Provide a real Discord destination from the launch panel, with a clear note identifying where final bot invite URLs can be connected.
+## Motion and delivery
+- [x] Add the specified load sequence, wordmark letter stagger, button hover lift, active-section nav pill, smooth scroll, mobile clover dropdown, and prefers-reduced-motion handling.
+- [x] Validate at 1920px, 1440px, and 390px, fix differences, checkpoint, publish, and report any remaining differences.
