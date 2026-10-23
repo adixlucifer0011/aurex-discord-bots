@@ -31,6 +31,18 @@ const server = createServer(async (request, response) => {
   const target = normalize(join(root, relative));
   const publicTarget = normalize(join(publicRoot, relative));
 
+  if (pathname.startsWith('/api/')) {
+    const payload = {
+      '/api/session': { authenticated: false, provider: 'discord', message: 'Mock session. Wire Discord OAuth2 server-side.' },
+      '/api/guilds': { guilds: [{ id: 'arcadia-hq', name: 'Arcadia HQ', permissions: ['MANAGE_GUILD'], bots: ['Music', 'Level', 'Ticket', 'Guard'] }] },
+      '/api/bots': { bots: ['Music', 'Level', 'Ticket', 'Guard', 'Greet', 'Custom'] },
+      '/api/invites': { base: 'https://discord.com/oauth2/authorize', scope: 'bot applications.commands', message: 'Mock invite builder.' }
+    }[pathname];
+    response.writeHead(payload ? 200 : 404, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' });
+    response.end(JSON.stringify(payload || { error: 'Not found' }));
+    return;
+  }
+
   if (!target.startsWith(root) || !publicTarget.startsWith(publicRoot)) {
     response.writeHead(403);
     response.end('Forbidden');
@@ -58,5 +70,5 @@ const server = createServer(async (request, response) => {
 });
 
 server.listen(port, '0.0.0.0', () => {
-  console.log(`ZYNO preview listening on http://0.0.0.0:${port}`);
+  console.log(`AUREX preview listening on http://0.0.0.0:${port}`);
 });

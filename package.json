@@ -1,9 +1,11 @@
 {
   "name": "aurex",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "build": "rm -rf dist && mkdir -p dist && cp index.html styles.css script.js public/manus-routes.json public/favicon.svg dist/",
+    "lint": "node --check server.js && node --check script.js"
   }
 }
