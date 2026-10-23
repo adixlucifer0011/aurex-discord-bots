@@ -4,6 +4,7 @@ let scrollFrame;
 
 const syncScrollState = () => {
   document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);
+  document.documentElement.style.setProperty('--hero-shift', `${window.scrollY * -0.04}px`);
   document.body.classList.toggle('is-scrolled', window.scrollY > 30);
   scrollFrame = undefined;
 };

@@ -27,7 +27,9 @@ const server = createServer(async (request, response) => {
     response.end('Bad request');
     return;
   }
-  const relative = pathname === '/' ? 'index.html' : pathname.replace(/^\/+/, '');
+  const relative = pathname.startsWith('/manus-storage/')
+    ? 'public/zyno-reference.webp'
+    : (pathname === '/' ? 'index.html' : pathname.replace(/^\/+/, ''));
   const target = normalize(join(root, relative));
   const publicTarget = normalize(join(publicRoot, relative));
 
