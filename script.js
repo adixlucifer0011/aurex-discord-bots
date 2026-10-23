@@ -1,10 +1,10 @@
 const bots = [
   { name: 'Music', icon: '♫', description: 'Reliable playback, queue control, and a room that never loses the beat.', image: '' },
   { name: 'Level', icon: '↗', description: 'XP, ranks, role rewards, and a leaderboard your members can follow.', image: '' },
+  { name: 'Ping', icon: '⌁', description: 'Fast status checks, latency readouts, and simple server diagnostics.', image: '' },
   { name: 'Ticket', icon: '▱', description: 'Private support flows with clean panels, categories, and transcripts.', image: '' },
   { name: 'Guard', icon: '◌', description: 'Protection against raids, spam, and the chaos nobody invited.', image: '' },
-  { name: 'Greet', icon: '✦', description: 'Warm welcomes, leave messages, and role automation for every arrival.', image: '' },
-  { name: 'Custom', icon: '+', description: 'Add your own bot and keep it in the same command center.', image: '' }
+  { name: 'Greet', icon: '✦', description: 'Warm welcomes, leave messages, and role automation for every arrival.', image: '' }
 ];
 const servers = [
   { id: 'arcadia', name: 'Arcadia HQ', initials: 'A', bots: ['Music', 'Level', 'Ticket', 'Guard'] },
@@ -43,7 +43,7 @@ const enterDashboard = () => {
   showToast(`Connected to Discord · ${activeServer.name}`);
 };
 const login = () => openModal('Connect Discord', '<p>Sign in with Discord to view the servers you manage. AUREX will only show servers where you have management permissions.</p><p class="muted">The production version will use Discord OAuth2 with a server-side session.</p>', 'Continue with Discord', enterDashboard);
-const publicBotMarkup = () => bots.filter((bot) => bot.name !== 'Custom').map((bot) => `<article class="glass-card bot-card"><div class="bot-card-top"><span class="bot-avatar">${bot.icon}</span><span class="status">Ready</span></div><h3>${bot.name}</h3><p>${bot.description}</p><button class="text-button" data-action="login">Invite ${bot.name} ↗</button></article>`).join('');
+const publicBotMarkup = () => bots.map((bot) => `<article class="glass-card bot-card"><div class="bot-card-top"><span class="bot-avatar">${bot.image ? `<img src="${bot.image}" alt="${bot.name}" />` : bot.icon}</span><span class="status">Ready</span></div><h3>${bot.name}</h3><p>${bot.description}</p><button class="text-button" data-action="login">Invite ${bot.name} ↗</button></article>`).join('');
 document.querySelector('#public-bots')?.insertAdjacentHTML('beforeend', publicBotMarkup());
 const renderSideNav = () => {
   document.querySelector('#side-nav').innerHTML = tabs.map((tab) => `<button class="side-link ${activeTab === tab ? 'active' : ''}" data-tab="${escapeHtml(tab)}">${tab}</button>`).join('');
@@ -65,7 +65,7 @@ const bindActions = () => {
     else if (action === 'invite') { if (!currentBotState(element.dataset.bot)) { activeServer.bots.push(element.dataset.bot); renderDashboard(); showToast(`${element.dataset.bot} added to ${activeServer.name}`); } }
     else if (action === 'dashboard') authenticated ? enterDashboard() : login();
     else if (action === 'add-bot') openModal('Add a bot', '<p>Add your bot details and choose a permission preset. Bot artwork can be added later from the bot asset field.</p><input class="mock-input" placeholder="Bot name" /><input class="mock-input" placeholder="Client ID" />', 'Add to workspace', () => showToast('Bot saved to your workspace.'));
-    else if (action === 'invite-all') openModal('Invite all bots', `<p>AUREX will guide you through each missing bot for ${activeServer.name}, then confirm when it joins.</p>`, 'Start wizard', () => { bots.filter((bot) => !currentBotState(bot.name) && bot.name !== 'Custom').forEach((bot) => activeServer.bots.push(bot.name)); renderDashboard(); showToast('All selected bots marked as added.'); });
+    else if (action === 'invite-all') openModal('Invite all bots', `<p>AUREX will guide you through each missing bot for ${activeServer.name}, then confirm when it joins.</p>`, 'Start wizard', () => { bots.filter((bot) => !currentBotState(bot.name)).forEach((bot) => activeServer.bots.push(bot.name)); renderDashboard(); showToast('All selected bots marked as added.'); });
     else if (action === 'configure') openModal(`Configure ${element.dataset.bot}`, `<p>${element.dataset.bot} is installed in ${activeServer.name}. Its settings, roles, channels, and bot-specific controls will appear here.</p>`, 'Open configuration');
     else if (action === 'select-server') selectServer(element.dataset.server);
     else if (action === 'switch-server') openModal('Switch server', servers.map((server) => `<button class="server-choice" data-server-choice="${server.id}">${server.initials} ${server.name}</button>`).join(''), 'Done', () => {});
