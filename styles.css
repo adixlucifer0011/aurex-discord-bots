@@ -191,3 +191,9 @@ main { background: #050508; }
 .reference-hero-image { position: absolute; z-index: 0; inset: -30px 0; width: 100%; height: calc(100% + 60px); object-fit: cover; object-position: center center; opacity: .78; filter: brightness(.72) saturate(1.15) contrast(1.04); transform: translateY(var(--hero-shift, 0px)); will-change: transform; }
 .hero-visual::after { position: absolute; z-index: 1; inset: 0; background: linear-gradient(180deg, rgba(1,1,4,.18) 0%, rgba(1,1,4,.08) 30%, #010104 34%, #010104 100%), radial-gradient(ellipse 48% 24% at 50% 48%, rgba(0,0,0,.98) 0%, rgba(0,0,0,.94) 68%, transparent 100%); content: ''; pointer-events: none; }
 .hero-copy { z-index: 3; }.hero::before { opacity: .38; mix-blend-mode: screen; }.hero-wordmark { text-shadow: 0 0 22px rgba(255,255,255,.16), 0 0 80px rgba(87,76,255,.25); }
+
+/* CSS-only reconstruction of the supplied reference background */
+.reference-hero-image { display: none; }
+.hero-visual { background: radial-gradient(ellipse at 50% 58%, rgba(35,31,112,.55) 0%, rgba(4,4,14,.15) 35%, transparent 58%), linear-gradient(90deg, #f0f0f2 0%, #7776f0 5%, #1d19d8 15%, #07071b 29%, #020205 50%, #07071b 71%, #1d19d8 85%, #7776f0 95%, #f0f0f2 100%); opacity: .96; }
+.hero-visual::after { background: radial-gradient(ellipse 62% 38% at 50% 66%, transparent 0 45%, rgba(71,65,255,.84) 54%, rgba(255,255,255,.92) 64%, rgba(54,43,255,.85) 73%, transparent 84%), linear-gradient(180deg, rgba(1,1,4,.06) 0%, rgba(1,1,4,.25) 42%, rgba(1,1,4,.94) 67%, #010104 100%); }
+.hero-wordmark { max-width: 1400px; margin-right: auto; margin-left: auto; gap: clamp(10px, 5vw, 78px); font-family: 'Arial Black', 'Inter', 'Helvetica Neue', Arial, sans-serif; font-size: clamp(70px, 12.5vw, 235px); font-weight: 900; letter-spacing: .04em; }
