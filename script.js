@@ -1,5 +1,17 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.desktop-nav');
+let scrollFrame;
+
+const syncScrollState = () => {
+  document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);
+  document.body.classList.toggle('is-scrolled', window.scrollY > 30);
+  scrollFrame = undefined;
+};
+
+window.addEventListener('scroll', () => {
+  if (!scrollFrame) scrollFrame = requestAnimationFrame(syncScrollState);
+}, { passive: true });
+syncScrollState();
 
 menuToggle?.addEventListener('click', () => {
   const isOpen = nav.classList.toggle('is-open');
